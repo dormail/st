@@ -5,11 +5,8 @@
  *
  * font: see http://freedesktop.org/software/fontconfig/fontconfig-user.html
  */
-static char *font = "Iosevka:size=12";
+static char *font = "Liberation Mono:pixelsize=12:antialias=true:autohint=true";
 static int borderpx = 2;
-
-/* bg opacity */
-float alpha = 0.8;
 
 /*
  * What program is execed by st depends of these precedence rules:
@@ -19,7 +16,7 @@ float alpha = 0.8;
  * 4: value of shell in /etc/passwd
  * 5: value of shell in config.h
  */
-static char *shell = "/bin/fish";
+static char *shell = "/bin/sh";
 char *utmp = NULL;
 /* scroll program: to enable use a string like "scroll" */
 char *scroll = NULL;
@@ -98,68 +95,25 @@ unsigned int tabspaces = 8;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
-	/* gogh - red-alert 
-	 * https://github.com/Mayccoll/Gogh/blob/master/themes/red-alert.sh 
-	 */
-	"#000000",
-	"#d62e4e",
-	"#71be6b",
-	"#beb86b",
-	"#489bee",
-	"#e979d7",
-	"#6bbeb8",
-	"#d6d6d6",
+	/* 8 normal colors */
+	"black",
+	"red3",
+	"green3",
+	"yellow3",
+	"blue2",
+	"magenta3",
+	"cyan3",
+	"gray90",
 
-	"#262626",
-	"#e02553",
-	"#aff08c",
-	"#dfddb7",
-	"#65aaf1",
-	"#ddb7df",
-	"#489bee",
-	"#ffffff",
-
-	/* 3023 night scheme with some changes
-	 * https://github.com/Mayccoll/Gogh/blob/master/themes/3024-day.sh
-	 */
-//	"#090300",
-//	"#e44754",
-//	"#89BD82",
-//	"#fded02",
-//	"#01a0e4",
-//	"#a16a94",
-//	"#b5e4f4",
-//	"#ffffef",
-//
-//	"#5c5855",
-//	"#e44754",
-//	"#55ff55",
-//	"#4a4543",
-//	"#5555ff",
-//	"#d6d5d4",
-//	"#01a0e4",
-//	"#f7f7f7",
-
-	/*some other color scheme */
-	///* 8 normal colors */
-	//"black",
-	//"#e9897c",
-	//"#b6e77d",
-	//"#ecebbe",
-	//"#a9cdeb",
-	//"#ea96eb",
-	//"#c9caec",
-	//"#f2f2f2",
-
-	///* 8 bright colors */
-	//"black",
-	//"#f99286",
-	//"#c3f786",
-	//"#fcfbcc",
-	//"#b6defb",
-	//"#fba1fb",
-	//"#d7d9fc",
-	//"#e2e2e2",
+	/* 8 bright colors */
+	"gray50",
+	"red",
+	"green",
+	"yellow",
+	"#5c5cff",
+	"magenta",
+	"cyan",
+	"white",
 
 	[255] = 0,
 
@@ -185,7 +139,7 @@ static unsigned int defaultrcs = 257;
  * 6: Bar ("|")
  * 7: Snowman ("☃")
  */
-static unsigned int cursorshape = 4;
+static unsigned int cursorshape = 2;
 
 /*
  * Default columns and rows numbers
@@ -245,8 +199,6 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Y,           selpaste,       {.i =  0} },
 	{ ShiftMask,            XK_Insert,      selpaste,       {.i =  0} },
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
-	// new term with ctrl + shift + return
-	{ TERMMOD,              XK_Return,      newterm,        {.i =  0} },
 };
 
 /*
