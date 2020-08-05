@@ -247,6 +247,9 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_Num_Lock,    numlock,        {.i =  0} },
 	// new term with ctrl + shift + return
 	{ TERMMOD,              XK_Return,      newterm,        {.i =  0} },
+	// scrollback
+	 { ShiftMask,            XK_Page_Up,     kscrollup,      {.i = -1} },
+	 { ShiftMask,            XK_Page_Down,   kscrolldown,    {.i = -1} },
 };
 
 /*
